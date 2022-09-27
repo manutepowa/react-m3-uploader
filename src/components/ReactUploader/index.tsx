@@ -10,7 +10,7 @@ const ReactUploader = ({name, fetcher}: IReactUploader): JSX.Element => {
   
   return (
     <div className={css.container}>
-      hello worlddsasdf
+      hello {name}
     </div>
   )
 }
