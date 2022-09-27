@@ -1,2 +1,2 @@
-export { ReactUploader } from './components'
-export type { IReactUploader } from './components'
+export { ReactUploader } from './components/ReactUploader'
+export type { IReactUploader } from './types'
