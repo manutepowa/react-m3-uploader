@@ -5,6 +5,7 @@ export type DefaultFile = {
 
 export interface IReactUploader {
   defaultImages?: DefaultFile[];
+  description?: string;
 }
 
 export interface UploaderContext {
