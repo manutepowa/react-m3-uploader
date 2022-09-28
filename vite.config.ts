@@ -1,31 +1,27 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts'
-import {resolve} from 'path'
-import packageJson from './package.json'
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js'
+import { defineConfig } from "vite"
+import react from "@vitejs/plugin-react"
+import dts from "vite-plugin-dts"
+import { resolve } from "path"
+import packageJson from "./package.json"
+import cssInjectedByJsPlugin from "vite-plugin-css-injected-by-js"
 
 export default defineConfig({
-  plugins: [
-    react(), 
-    cssInjectedByJsPlugin(),
-    dts()
-  ],
+  plugins: [react(), cssInjectedByJsPlugin(), dts()],
   build: {
     lib: {
-      entry: resolve(__dirname, 'src/index.ts'),
+      entry: resolve(__dirname, "src/index.ts"),
       name: packageJson.name,
-      formats: ['es', 'umd'],
+      formats: ["es", "umd"],
       fileName: (format) => `${packageJson.name}.${format}.js`,
     },
     rollupOptions: {
       external: [...Object.keys(packageJson.peerDependencies)],
       output: {
         globals: {
-          react: 'React',
-          'react-dom': 'ReactDom'
-        }
+          react: "React",
+          "react-dom": "ReactDom",
+        },
       },
     },
-  }
+  },
 })

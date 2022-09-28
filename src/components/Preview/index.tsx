@@ -13,8 +13,9 @@ export const Preview = () => {
               image instanceof File ? URL.createObjectURL(image) : image.url
             return (
               <div key={index}>
-                <span onClick={() => removeImage(index)}>x</span>
-                <Remove />
+                <span className={css.remove} onClick={() => removeImage(index)}>
+                  <Remove />
+                </span>
                 <img className={css.thumbnail} src={imageToRender} />
               </div>
             )
