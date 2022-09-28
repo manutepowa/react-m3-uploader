@@ -10,6 +10,10 @@
   right: 0;
 }
 
+.remove svg {
+  width: 24px;
+}
+
 .imageCard {
   flex: 0 1 calc(33% - 1em);
   position: relative;
