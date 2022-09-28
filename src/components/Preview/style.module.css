@@ -1,12 +1,24 @@
 .container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   padding: 20px;
-  background: #ece;
+}
+
+.remove {
+  position: absolute;
+  right: 0;
+}
+
+.imageCard {
+  flex: 0 1 calc(33% - 1em);
+  position: relative;
+  padding: 4px;
+  border: 2px solid #ece;
 }
 
 .thumbnail {
   width: 100px;
-}
-
-.remove {
-  font-size: 10px;
+  height: 100px;
+  object-fit: contain;
 }

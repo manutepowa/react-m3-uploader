@@ -12,7 +12,7 @@ export const Preview = () => {
             const imageToRender: string =
               image instanceof File ? URL.createObjectURL(image) : image.url
             return (
-              <div key={index}>
+              <div key={index} className={css.imageCard}>
                 <span className={css.remove} onClick={() => removeImage(index)}>
                   <Remove />
                 </span>
