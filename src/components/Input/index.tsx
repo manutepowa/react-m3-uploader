@@ -9,7 +9,7 @@ export const Input = (): JSX.Element => {
       <button onClick={() => filesRefs.current?.click()}>Upload</button>
       <input
         accept="image/*"
-        // onChange={change}
+        onChange={pushImages}
         multiple
         ref={filesRefs}
         type="file"

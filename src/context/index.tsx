@@ -1,15 +1,18 @@
 import { createContext, useContext } from "react"
+import { useUploaderFunctions } from "../hooks/useUploaderFunctions"
 import { UploaderContext } from "../types"
 
-const uploaderContext = createContext<UploaderContext>({})
+const uploaderContext = createContext<UploaderContext | null>(null)
 
 type ProviderType = {
   children: JSX.Element,
-} & UploaderContext
+}
 
 const UploaderProvider = (props: ProviderType) => {
+  const config: UploaderContext = useUploaderFunctions()
+
   return (
-    <uploaderContext.Provider value={{}}>
+    <uploaderContext.Provider value={config}>
       {props.children}
     </uploaderContext.Provider>
   )
