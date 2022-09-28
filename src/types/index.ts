@@ -1,10 +1,14 @@
+export type DefaultFile = {
+  id: string,
+  url: string,
+}
+
 export interface IReactUploader {
-  name?: string;
-  fetcher?: (url: string) => void;
+  defaultImages?: DefaultFile[];
 }
 
 export interface UploaderContext {
   pushImages: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  images: File[];
+  images: Array<DefaultFile | File>;
   removeImage: (index: number) => void;
 }

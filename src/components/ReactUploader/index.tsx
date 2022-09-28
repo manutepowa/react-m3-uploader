@@ -3,9 +3,11 @@ import { IReactUploader } from "../../types"
 import { Input } from "../Input"
 import { Preview } from "../Preview"
 
-export const ReactUploader = (props: IReactUploader): JSX.Element => {
+export const ReactUploader = ({
+  defaultImages = [],
+}: IReactUploader): JSX.Element => {
   return (
-    <UploaderProvider {...props}>
+    <UploaderProvider {...{ defaultImages }}>
       <div>
         <Input />
         <Preview />

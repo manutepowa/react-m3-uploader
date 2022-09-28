@@ -1,7 +1,10 @@
 import React from "react"
+import { DefaultFile, IReactUploader } from "../types"
 
-export const useUploaderFunctions = () => {
-  const [images, setImages] = React.useState<File[]>([])
+export const useUploaderFunctions = (props: IReactUploader) => {
+  const [images, setImages] = React.useState<Array<DefaultFile | File>>(
+    props.defaultImages
+  )
 
   const pushImages = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
