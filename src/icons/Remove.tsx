@@ -1,6 +1,7 @@
 export const Remove = () => {
   return (
     <svg
+      className="w-6 h-6"
       width="36px"
       height="36px"
       viewBox="0 0 36 36"

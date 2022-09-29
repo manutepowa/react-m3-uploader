@@ -10,7 +10,7 @@ export const Input = (): JSX.Element => {
         className="bg-blue-600 rounded-md px-4 py-2 text-white mx-auto block"
         onClick={() => filesRefs.current?.click()}
       >
-        Upload Images
+        Select Images
       </button>
       <input
         accept="image/*"
