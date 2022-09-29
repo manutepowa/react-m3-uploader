@@ -16,7 +16,7 @@ export const Preview = () => {
                 className="w-[100px] h-[100px] relative rounded-md shadow-md"
               >
                 <span
-                  className="absolute -right-2 -top-2 rounded-full text-white cursor-pointer bg-red-400"
+                  className="absolute -right-2 -top-2 rounded-full text-white cursor-pointer bg-red-400 hover:bg-red-600"
                   onClick={() => removeImage(index)}
                 >
                   <Remove />

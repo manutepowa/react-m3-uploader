@@ -9,8 +9,8 @@ export const ReactUploader = ({
 }: IReactUploader): JSX.Element => {
   return (
     <UploaderProvider {...{ defaultImages }}>
-      <div className="w-full space-y-4 rounded-md shadow-md p-8 bg-gray-50">
-        {description && <p className="text-center">{description}</p>}
+      <div className="w-full space-y-8 rounded-md shadow-md p-8 bg-white">
+        {description && <p className="text-center text-md">{description}</p>}
         <Input />
         <Preview />
       </div>
