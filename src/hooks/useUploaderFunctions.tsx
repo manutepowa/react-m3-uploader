@@ -21,7 +21,7 @@ export const useUploaderFunctions = ({
     const newImages = [...images]
     const removedImage = newImages.splice(index, 1)
     if (removedImage[0] instanceof File === false) {
-      setRemovedImagesFunction(removedImage[0])
+      setRemovedImagesFunction(removedImage[0] as DefaultFile) //eslint-disable-line
     }
     setImages?.([...newImages])
   }
