@@ -1,25 +1,28 @@
-import React from "react"
-import { DefaultFile, IReactUploader } from "../types"
+import React, { useEffect } from "react"
+import { IReactUploader } from "../types"
 
 export const useUploaderFunctions = (props: Partial<IReactUploader>) => {
-  const [images, setImages] = React.useState<Array<DefaultFile | File>>(
-    props.defaultImages || []
-  )
+  // const [images, setImages] = React.useState<Array<DefaultFile | File>>(
+  //   props.defaultImages || []
+  // )
+  useEffect(() => {
+    props.setImages?.([...props.images, ...props.defaultImages])
+  }, [])
 
   const pushImages = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
-      setImages([...images, ...Array.from(event.target.files)])
+      props.setImages?.([...props.images, ...Array.from(event.target.files)])
     }
   }
 
   const removeImage = (index: number) => {
-    const newImages = [...images]
+    const newImages = [...props.images]
     newImages.splice(index, 1)
-    setImages(newImages)
+    props.setImages?.(newImages)
   }
 
   return {
-    images,
+    images: props.images,
     pushImages,
     removeImage,
   }
