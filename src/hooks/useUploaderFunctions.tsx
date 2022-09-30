@@ -1,28 +1,32 @@
-import React, { useEffect } from "react"
-import { IReactUploader } from "../types"
+import { DefaultFile, ImagesType, IReactUploader } from "../types"
 
-export const useUploaderFunctions = (props: Partial<IReactUploader>) => {
-  // const [images, setImages] = React.useState<Array<DefaultFile | File>>(
-  //   props.defaultImages || []
-  // )
-  useEffect(() => {
-    props.setImages?.([...props.images, ...props.defaultImages])
-  }, [])
-
-  const pushImages = (event: React.ChangeEvent<HTMLInputElement>) => {
+export const useUploaderFunctions = ({
+  setImages,
+  setRemovedImages,
+}: Partial<IReactUploader>) => {
+  const pushImages = (
+    event: React.ChangeEvent<HTMLInputElement>,
+    images: ImagesType
+  ) => {
     if (event.target.files) {
-      props.setImages?.([...props.images, ...Array.from(event.target.files)])
+      setImages?.([...images, ...Array.from(event.target.files)])
     }
   }
 
-  const removeImage = (index: number) => {
-    const newImages = [...props.images]
-    newImages.splice(index, 1)
-    props.setImages?.(newImages)
+  const setRemovedImagesFunction = (image: DefaultFile) => {
+    setRemovedImages?.((prev) => [...prev, image])
+  }
+
+  const removeImage = (index: number, images: ImagesType) => {
+    const newImages = [...images]
+    const removedImage = newImages.splice(index, 1)
+    if (removedImage[0] instanceof File === false) {
+      setRemovedImagesFunction(removedImage[0])
+    }
+    setImages?.([...newImages])
   }
 
   return {
-    images: props.images,
     pushImages,
     removeImage,
   }

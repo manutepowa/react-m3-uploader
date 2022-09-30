@@ -5,7 +5,7 @@ const buttonStyle =
   "bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 rounded-md px-4 py-2 text-white"
 
 export const Input = (): JSX.Element => {
-  const { pushImages } = useUploaderContext()
+  const { pushImages, images } = useUploaderContext()
   const filesRefs = useRef<HTMLInputElement>(null)
   return (
     <div>
@@ -17,7 +17,7 @@ export const Input = (): JSX.Element => {
       </button>
       <input
         accept="image/*"
-        onChange={pushImages}
+        onChange={(e) => pushImages(e, images)}
         multiple
         ref={filesRefs}
         type="file"

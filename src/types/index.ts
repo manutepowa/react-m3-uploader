@@ -9,12 +9,16 @@ export type ImagesType = Array<DefaultFile | File>
 export interface IReactUploader {
   defaultImages?: DefaultFile[];
   description?: string;
-  images: ImagesType | undefined;
+  images?: ImagesType;
   setImages: Dispatch<SetStateAction<ImagesType>>;
+  setRemovedImages?: Dispatch<SetStateAction<DefaultFile[]>>;
 }
 
 export interface UploaderContext {
-  pushImages: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  pushImages: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    images: ImagesType
+  ) => void;
+  removeImage: (index: number, images: ImagesType) => void;
   images: ImagesType;
-  removeImage: (index: number) => void;
 }
