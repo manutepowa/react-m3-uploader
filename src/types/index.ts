@@ -7,9 +7,8 @@ export type DefaultFile = {
 export type ImagesType = Array<DefaultFile | File>
 
 export interface IReactUploader {
-  defaultImages?: DefaultFile[];
   description?: string;
-  images?: ImagesType;
+  images: ImagesType;
   setImages: Dispatch<SetStateAction<ImagesType>>;
   setRemovedImages?: Dispatch<SetStateAction<DefaultFile[]>>;
 }
