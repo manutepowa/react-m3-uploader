@@ -1,7 +1,7 @@
 import { Dispatch, SetStateAction } from "react"
 
 export type DefaultFile = {
-  id: string,
+  id: string | number,
   url: string,
 }
 export type ImagesType = Array<DefaultFile | File>
