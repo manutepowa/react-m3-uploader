@@ -12,6 +12,7 @@ export const Input = (): JSX.Element => {
       <button
         className={`${buttonStyle} mx-auto block`}
         onClick={() => filesRefs.current?.click()}
+        type="button"
       >
         Select Images
       </button>
