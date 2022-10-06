@@ -1,7 +1,24 @@
 {
-  "name": "react-uploader",
+  "name": "react-m3-uploader",
+  "version": "0.0.1",
+  "description": "Component to add an image input to manage uploads",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:manutepowa/react-m3-uploader.git"
+  },
+  "author": {
+    "email": "manutepowa@gmail.com",
+    "name": "Manuel Tercero"
+  },
+  "maintainers": [
+    {
+      "email": "manutepowa@gmail.com",
+      "name": "Manuel Tercero",
+      "url": "https://github.com/manutepowa"
+    }
+  ],
+  "license": "MIT",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
