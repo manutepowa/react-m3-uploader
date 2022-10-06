@@ -5,7 +5,7 @@ export const Preview = () => {
   const { images, removeImage } = useUploaderContext()
   return (
     <>
-      {images.length > 0 && (
+      {images?.length > 0 && (
         <div className="flex flex-wrap items-center justify-center gap-2">
           {images.map((image, index) => {
             const imageToRender: string =
@@ -17,7 +17,7 @@ export const Preview = () => {
               >
                 <span
                   className="absolute -right-2 -top-2 rounded-full text-white cursor-pointer bg-red-400 hover:bg-red-600"
-                  onClick={() => removeImage(index)}
+                  onClick={() => removeImage(index, images)}
                 >
                   <Remove />
                 </span>

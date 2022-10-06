@@ -6,10 +6,16 @@ const uploaderContext = createContext<UploaderContext | null>(null)
 
 type ProviderType = {
   children: JSX.Element,
-} & IReactUploader
+} & Partial<IReactUploader>
 
 const UploaderProvider = (props: ProviderType) => {
-  const config: UploaderContext = useUploaderFunctions(props)
+  const config: UploaderContext = {
+    ...useUploaderFunctions({
+      setImages: props.setImages,
+      setRemovedImages: props.setRemovedImages,
+    }),
+    images: props.images || [],
+  }
 
   return (
     <uploaderContext.Provider value={config}>
