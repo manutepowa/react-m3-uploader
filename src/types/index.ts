@@ -6,7 +6,8 @@ export type DefaultFile = {
 }
 export type ImagesType = Array<DefaultFile | File>
 export type StylesProps = {
-  [key: string]: string,
+  container?: string,
+  button?: string,
 } | null
 
 export interface IReactUploader {

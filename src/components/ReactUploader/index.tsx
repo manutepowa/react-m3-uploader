@@ -13,7 +13,13 @@ export const ReactUploader = ({
   return (
     <UploaderProvider {...{ images, setImages, setRemovedImages, styles }}>
       {/* <div className="w-full space-y-8 p-8 bg-white"> Remove shadow and rounded */}
-      <div className="w-full space-y-8 rounded-md shadow-md p-8 bg-white">
+      <div
+        className={
+          styles && styles.container
+            ? styles.container
+            : "w-full space-y-8 rounded-md shadow-md p-8 bg-white"
+        }
+      >
         {description && <p className="text-center text-md">{description}</p>}
         <Input />
         <Preview />
