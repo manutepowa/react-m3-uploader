@@ -5,12 +5,16 @@ export type DefaultFile = {
   url: string,
 }
 export type ImagesType = Array<DefaultFile | File>
+export type StylesProps = {
+  [key: string]: string,
+} | null
 
 export interface IReactUploader {
   description?: string;
   images: ImagesType;
   setImages: Dispatch<SetStateAction<ImagesType>>;
   setRemovedImages?: Dispatch<SetStateAction<DefaultFile[]>>;
+  styles?: StylesProps;
 }
 
 export interface UploaderContext {
@@ -20,4 +24,5 @@ export interface UploaderContext {
   ) => void;
   removeImage: (index: number, images: ImagesType) => void;
   images: ImagesType;
+  styles: StylesProps;
 }
