@@ -15,6 +15,7 @@ const UploaderProvider = (props: ProviderType) => {
       setRemovedImages: props.setRemovedImages,
     }),
     images: props.images || [],
+    styles: props.styles ?? {},
   }
 
   return (
